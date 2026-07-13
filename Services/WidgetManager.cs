@@ -2,10 +2,10 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using Avalonia.Controls;
-using MacWidget.Views.Widgets;
-using MacWidget.Views.Gallery;
+using MacroWidgets.Views.Widgets;
+using MacroWidgets.Views.Gallery;
 
-namespace MacWidget.Services;
+namespace MacroWidgets.Services;
 
 public class WidgetManager
 {

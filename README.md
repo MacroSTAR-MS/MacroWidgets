@@ -27,11 +27,11 @@
 ## 项目结构
 
 ```
-MacWidget/
+MacroWidgets/
 ├── Program.cs                        # 入口点 + 单实例锁
 ├── App.axaml / App.axaml.cs          # 应用程序 + 托盘 + 生命周期
 ├── Theme/
-│   └── MacWidgetTheme.xaml           # Design Token 系统
+│   └── MacroWidgetsTheme.xaml           # Design Token 系统
 ├── Assets/
 │   └── tray_icon.ico                 # 托盘图标
 ├── Models/
@@ -76,8 +76,8 @@ MacWidget/
 ### 构建
 
 ```bash
-git clone https://github.com/your-username/MacWidget.git
-cd MacWidget
+git clone https://github.com/your-username/MacroWidgets.git
+cd MacroWidgets
 dotnet build
 dotnet run
 ```
@@ -93,7 +93,7 @@ dotnet run
 
 ## 配置文件
 
-配置保存在 `%AppData%\MacWidget\` 下：
+配置保存在 `%AppData%\MacroWidgets\` 下：
 
 | 文件 | 说明 |
 |---|---|
@@ -102,7 +102,7 @@ dotnet run
 
 ## 设计系统
 
-项目使用统一的 Design Token 系统（`Theme/MacWidgetTheme.xaml`），涵盖：
+项目使用统一的 Design Token 系统（`Theme/MacroWidgetsTheme.xaml`），涵盖：
 
 - **Surface 颜色** — 小组件背景、卡片、输入框、分隔线等
 - **Text 颜色** — 主文本、次文本、三级文本、禁用文本

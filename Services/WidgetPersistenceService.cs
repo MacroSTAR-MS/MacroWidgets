@@ -2,26 +2,26 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text.Json;
-using MacWidget.Views;
+using MacroWidgets.Views;
 
-namespace MacWidget.Services;
+namespace MacroWidgets.Services;
 
 /// <summary>
 /// 持久化服务：保存和恢复小组件布局。
-/// 配置文件保存在 AppData/MacWidget/config.json
+/// 配置文件保存在 AppData/MacroWidgets/config.json
 /// </summary>
 public class WidgetPersistenceService
 {
     private static readonly string ConfigDir = Path.Combine(
-        Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "MacWidget");
+        Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "MacroWidgets");
 
     private static readonly string ConfigPath = Path.Combine(ConfigDir, "config.json");
 
     private static readonly string SettingsPath = Path.Combine(ConfigDir, "settings.json");
 
-    public MacWidgetConfig Config { get; private set; } = new();
+    public MacroWidgetsConfig Config { get; private set; } = new();
 
-    public MacWidgetSettings Settings { get; private set; } = new();
+    public MacroWidgetsSettings Settings { get; private set; } = new();
 
     /// <summary>
     /// 加载配置。如果文件不存在则使用默认值。
@@ -33,20 +33,20 @@ public class WidgetPersistenceService
             if (File.Exists(ConfigPath))
             {
                 var json = File.ReadAllText(ConfigPath);
-                Config = JsonSerializer.Deserialize<MacWidgetConfig>(json) ?? new MacWidgetConfig();
+                Config = JsonSerializer.Deserialize<MacroWidgetsConfig>(json) ?? new MacroWidgetsConfig();
             }
 
             if (File.Exists(SettingsPath))
             {
                 var json = File.ReadAllText(SettingsPath);
-                Settings = JsonSerializer.Deserialize<MacWidgetSettings>(json) ?? new MacWidgetSettings();
+                Settings = JsonSerializer.Deserialize<MacroWidgetsSettings>(json) ?? new MacroWidgetsSettings();
             }
         }
         catch (Exception)
         {
             // 配置文件损坏，使用默认值
-            Config = new MacWidgetConfig();
-            Settings = new MacWidgetSettings();
+            Config = new MacroWidgetsConfig();
+            Settings = new MacroWidgetsSettings();
         }
     }
 
@@ -88,7 +88,7 @@ public class WidgetPersistenceService
 /// <summary>
 /// 应用配置：小组件布局
 /// </summary>
-public class MacWidgetConfig
+public class MacroWidgetsConfig
 {
     public List<WidgetLayoutInfo> Widgets { get; set; } = new();
 }
@@ -96,7 +96,7 @@ public class MacWidgetConfig
 /// <summary>
 /// 应用设置（埋点，后续扩展）
 /// </summary>
-public class MacWidgetSettings
+public class MacroWidgetsSettings
 {
     /// <summary>天气城市</summary>
     public string WeatherCity { get; set; } = "广州";

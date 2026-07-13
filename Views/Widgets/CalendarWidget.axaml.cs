@@ -1,7 +1,7 @@
 using Avalonia.Controls;
-using MacWidget.ViewModels.Widgets;
+using MacroWidgets.ViewModels.Widgets;
 
-namespace MacWidget.Views.Widgets;
+namespace MacroWidgets.Views.Widgets;
 
 public partial class CalendarWidget : UserControl
 {

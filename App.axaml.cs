@@ -2,17 +2,17 @@ using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Threading;
-using MacWidget.Services;
-using MacWidget.Views;
-using MacWidget.Views.Gallery;
-using MacWidget.Views.Settings;
-using MacWidget.Views.Widgets;
+using MacroWidgets.Services;
+using MacroWidgets.Views;
+using MacroWidgets.Views.Gallery;
+using MacroWidgets.Views.Settings;
+using MacroWidgets.Views.Widgets;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
-namespace MacWidget;
+namespace MacroWidgets;
 
 public partial class App : Application
 {
@@ -129,7 +129,7 @@ public partial class App : Application
         _trayIcon = new TrayIcon
         {
             Icon = icon,
-            ToolTipText = "MacWidget 桌面小组件",
+            ToolTipText = "MacroWidgets 桌面小组件",
             Menu = menu
         };
         _trayIcon.Clicked += (_, _) => OpenGallery();

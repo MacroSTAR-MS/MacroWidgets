@@ -1,6 +1,6 @@
 <UserControl xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             x:Class="MacWidget.Views.Settings.Pages.GeneralSettingsPage">
+             x:Class="MacroWidgets.Views.Settings.Pages.GeneralSettingsPage">
 
     <ScrollViewer VerticalScrollBarVisibility="Auto">
         <StackPanel Margin="24,16,24,24"
@@ -47,7 +47,7 @@
                                 VerticalAlignment="Center">
                         <TextBlock Text="开机自启" FontSize="{DynamicResource FontSizeSubtitle}"
                                    FontWeight="Medium" />
-                        <TextBlock Text="Windows 启动时自动运行 MacWidget"
+                        <TextBlock Text="Windows 启动时自动运行 MacroWidgets"
                                    FontSize="{DynamicResource FontSizeCaption}"
                                    Foreground="{DynamicResource SecondaryText}" />
                     </StackPanel>

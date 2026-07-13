@@ -3,10 +3,10 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using MacWidget.Models;
-using MacWidget.Services;
+using MacroWidgets.Models;
+using MacroWidgets.Services;
 
-namespace MacWidget.ViewModels.Widgets;
+namespace MacroWidgets.ViewModels.Widgets;
 
 public partial class RemindersViewModel : ObservableObject
 {

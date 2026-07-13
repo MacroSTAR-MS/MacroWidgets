@@ -2,7 +2,7 @@ using System;
 using Avalonia.Threading;
 using CommunityToolkit.Mvvm.ComponentModel;
 
-namespace MacWidget.ViewModels.Widgets;
+namespace MacroWidgets.ViewModels.Widgets;
 
 public partial class ClockViewModel : ObservableObject
 {

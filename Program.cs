@@ -2,7 +2,7 @@ using Avalonia;
 using System;
 using System.Threading;
 
-namespace MacWidget;
+namespace MacroWidgets;
 
 class Program
 {
@@ -12,7 +12,7 @@ class Program
     public static void Main(string[] args)
     {
         // 单实例锁
-        _mutex = new Mutex(true, "Global\\MacWidget_SingleInstance", out bool createdNew);
+        _mutex = new Mutex(true, "Global\\MacroWidgets_SingleInstance", out bool createdNew);
         if (!createdNew) return;
 
         BuildAvaloniaApp().StartWithClassicDesktopLifetime(args);

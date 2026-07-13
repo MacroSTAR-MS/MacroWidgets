@@ -1,7 +1,7 @@
 using System;
 using System.Runtime.InteropServices;
 
-namespace MacWidget.Native;
+namespace MacroWidgets.Native;
 
 /// <summary>
 /// Win32 P/Invoke 声明，用于实现桌面置底窗口。

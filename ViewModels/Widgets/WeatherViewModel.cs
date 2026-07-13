@@ -1,8 +1,8 @@
 using System.Collections.Generic;
 using CommunityToolkit.Mvvm.ComponentModel;
-using MacWidget.Models;
+using MacroWidgets.Models;
 
-namespace MacWidget.ViewModels.Widgets;
+namespace MacroWidgets.ViewModels.Widgets;
 
 public partial class WeatherViewModel : ObservableObject
 {

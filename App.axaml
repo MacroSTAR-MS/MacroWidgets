@@ -1,6 +1,6 @@
 <Application xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             x:Class="MacWidget.App"
+             x:Class="MacroWidgets.App"
              RequestedThemeVariant="Dark">
     <Application.Styles>
         <FluentTheme />
@@ -8,7 +8,7 @@
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceInclude Source="avares://MacWidget/Theme/MacWidgetTheme.xaml" />
+                <ResourceInclude Source="avares://MacroWidgets/Theme/MacroWidgetsTheme.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

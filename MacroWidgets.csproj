@@ -1,0 +1,45 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net9.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <BuiltInComInteropSupport>true</BuiltInComInteropSupport>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>
+    <RootNamespace>MacroWidgets</RootNamespace>
+    <AssemblyName>MacroWidgets</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Avalonia" Version="11.2.7" />
+    <PackageReference Include="Avalonia.Desktop" Version="11.2.7" />
+    <PackageReference Include="Avalonia.Themes.Fluent" Version="11.2.7" />
+    <PackageReference Include="Avalonia.Fonts.Inter" Version="11.2.7" />
+    <PackageReference Include="Avalonia.Xaml.Behaviors" Version="11.2.7" />
+    <PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <AvaloniaResource Include="Assets\**" Exclude="Assets\**\*.ico" />
+    <AvaloniaResource Include="Theme\**" />
+    <Content Include="Assets\**\*.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="app.manifest" />
+  </ItemGroup>
+
+  <!-- 排除参考项目 ClassIsland-master，不参与编译 -->
+  <ItemGroup>
+    <Compile Remove="ClassIsland-master\**" />
+    <None Remove="ClassIsland-master\**" />
+    <EmbeddedResource Remove="ClassIsland-master\**" />
+    <AvaloniaResource Remove="ClassIsland-master\**" />
+    <AvaloniaXaml Remove="ClassIsland-master\**" />
+    <Page Remove="ClassIsland-master\**" />
+  </ItemGroup>
+
+</Project>

@@ -1,8 +1,8 @@
 <UserControl xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:vm="using:MacWidget.ViewModels.Widgets"
-             xmlns:models="using:MacWidget.Models"
-             x:Class="MacWidget.Views.Widgets.RemindersWidget"
+             xmlns:vm="using:MacroWidgets.ViewModels.Widgets"
+             xmlns:models="using:MacroWidgets.Models"
+             x:Class="MacroWidgets.Views.Widgets.RemindersWidget"
              x:DataType="vm:RemindersViewModel">
 
     <Border Background="{DynamicResource WidgetBackground}"

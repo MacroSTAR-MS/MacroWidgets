@@ -4,9 +4,9 @@ using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Input;
 using Avalonia.Media;
-using MacWidget.Native;
+using MacroWidgets.Native;
 
-namespace MacWidget.Views;
+namespace MacroWidgets.Views;
 
 /// <summary>
 /// 独立的桌面小组件窗口。

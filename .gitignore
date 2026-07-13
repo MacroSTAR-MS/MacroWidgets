@@ -28,3 +28,5 @@ desktop.ini
 
 ## 参考项目（不参与编译，仅供参考）
 ClassIsland-master/
+/obj
+*.cache

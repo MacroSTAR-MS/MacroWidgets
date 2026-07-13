@@ -2,9 +2,9 @@ using System;
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Input;
-using MacWidget.ViewModels.Widgets;
+using MacroWidgets.ViewModels.Widgets;
 
-namespace MacWidget.Views.Gallery;
+namespace MacroWidgets.Views.Gallery;
 
 public partial class WidgetGalleryWindow : Window
 {

@@ -1,7 +1,7 @@
 <UserControl xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:vm="using:MacWidget.ViewModels.Widgets"
-             x:Class="MacWidget.Views.Widgets.ClockWidget"
+             xmlns:vm="using:MacroWidgets.ViewModels.Widgets"
+             x:Class="MacroWidgets.Views.Widgets.ClockWidget"
              x:DataType="vm:ClockViewModel">
 
     <Border Background="{DynamicResource WidgetBackground}"

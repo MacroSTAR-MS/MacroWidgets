@@ -2,9 +2,9 @@ using System;
 using System.Collections.Generic;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using MacWidget.Services;
+using MacroWidgets.Services;
 
-namespace MacWidget.ViewModels.Widgets;
+namespace MacroWidgets.ViewModels.Widgets;
 
 public partial class WidgetGalleryViewModel : ObservableObject
 {

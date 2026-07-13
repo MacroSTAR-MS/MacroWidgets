@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace MacWidget.Models;
+namespace MacroWidgets.Models;
 
 public class HourlyForecast
 {

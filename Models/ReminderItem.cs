@@ -1,6 +1,6 @@
 using System;
 
-namespace MacWidget.Models;
+namespace MacroWidgets.Models;
 
 public class ReminderItem
 {

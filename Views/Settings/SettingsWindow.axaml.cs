@@ -2,9 +2,9 @@ using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Input;
 using Avalonia.Media;
-using MacWidget.Views.Settings.Pages;
+using MacroWidgets.Views.Settings.Pages;
 
-namespace MacWidget.Views.Settings;
+namespace MacroWidgets.Views.Settings;
 
 public partial class SettingsWindow : Window
 {

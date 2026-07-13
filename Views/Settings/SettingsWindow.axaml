@@ -1,8 +1,8 @@
 <Window xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:pages="using:MacWidget.Views.Settings.Pages"
-        x:Class="MacWidget.Views.Settings.SettingsWindow"
-        Title="MacWidget 设置"
+        xmlns:pages="using:MacroWidgets.Views.Settings.Pages"
+        x:Class="MacroWidgets.Views.Settings.SettingsWindow"
+        Title="MacroWidgets 设置"
         Width="960" Height="640"
         MinWidth="780" MinHeight="500"
         SystemDecorations="Full"
@@ -119,7 +119,7 @@
                         Margin="16,16" />
 
                 <!-- 版本 -->
-                <TextBlock Text="MacWidget v1.0.0"
+                <TextBlock Text="MacroWidgets v1.0.0"
                            FontSize="{DynamicResource FontSizeSmall}"
                            Foreground="{DynamicResource DisabledText}"
                            Margin="16,8" />
