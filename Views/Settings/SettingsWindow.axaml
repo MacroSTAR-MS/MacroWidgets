@@ -7,9 +7,7 @@
         MinWidth="780" MinHeight="500"
         SystemDecorations="Full"
         CanResize="true"
-        WindowStartupLocation="CenterScreen"
-        ExtendClientAreaToDecorationsHint="True"
-        ExtendClientAreaChromeHints="PreferSystemChrome">
+        WindowStartupLocation="CenterScreen">
 
     <Grid ColumnDefinitions="240,*">
 
