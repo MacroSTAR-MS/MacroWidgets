@@ -1,0 +1,30 @@
+## .NET 构建输出
+bin/
+obj/
+
+## IDE
+.vs/
+.vscode/
+.idea/
+*.user
+*.suo
+*.sln.docstates
+
+## NuGet
+*.nupkg
+packages/
+
+## 临时文件
+*.tmp
+*.log
+*.bak
+*.swp
+*~
+
+## OS
+Thumbs.db
+.DS_Store
+desktop.ini
+
+## 参考项目（不参与编译，仅供参考）
+ClassIsland-master/
