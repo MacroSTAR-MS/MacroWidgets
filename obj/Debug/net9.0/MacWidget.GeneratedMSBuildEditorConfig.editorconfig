@@ -32,6 +32,18 @@ build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 [I:/GitHub/MacWidget/Views/Gallery/WidgetGalleryWindow.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
+[I:/GitHub/MacWidget/Views/Settings/Pages/AdvancedSettingsPage.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
+[I:/GitHub/MacWidget/Views/Settings/Pages/AppearanceSettingsPage.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
+[I:/GitHub/MacWidget/Views/Settings/Pages/GeneralSettingsPage.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
+[I:/GitHub/MacWidget/Views/Settings/Pages/NotificationSettingsPage.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
 [I:/GitHub/MacWidget/Views/Settings/SettingsWindow.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 

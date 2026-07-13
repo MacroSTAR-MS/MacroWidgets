@@ -1,0 +1,104 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="MacWidget.Views.Settings.Pages.AdvancedSettingsPage">
+
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <StackPanel Margin="24,16,24,24"
+                    Spacing="{DynamicResource SpacingSm}" MaxWidth="800">
+
+            <TextBlock Text="高级" FontSize="28" FontWeight="Bold"
+                       Foreground="{DynamicResource AccentBlue}"
+                       Margin="0,0,0,8" />
+            <TextBlock Text="高级设置与数据管理" FontSize="{DynamicResource FontSizeBody}"
+                       Foreground="{DynamicResource SecondaryText}"
+                       Margin="0,0,0,24" />
+
+            <!-- 天气 API（埋点） -->
+            <Border Background="{DynamicResource CardBackground}"
+                    CornerRadius="{DynamicResource RadiusSm}"
+                    Padding="20,14"
+                    Margin="0,0,0,4">
+                <StackPanel Spacing="{DynamicResource SpacingXs}">
+                    <DockPanel>
+                        <StackPanel DockPanel.Dock="Left" Spacing="{DynamicResource SpacingXs}"
+                                    VerticalAlignment="Center">
+                            <TextBlock Text="天气 API" FontSize="{DynamicResource FontSizeSubtitle}"
+                                       FontWeight="Medium" />
+                            <TextBlock Text="配置天气数据源 API Key（后续对接）"
+                                       FontSize="{DynamicResource FontSizeCaption}"
+                                       Foreground="{DynamicResource SecondaryText}" />
+                        </StackPanel>
+                    </DockPanel>
+                    <Border Background="{DynamicResource InputBackground}"
+                            CornerRadius="{DynamicResource RadiusXs}"
+                            Padding="12,8">
+                        <DockPanel>
+                            <TextBlock Text="API Key" FontSize="{DynamicResource FontSizeCaption}"
+                                       Foreground="{DynamicResource SecondaryText}"
+                                       VerticalAlignment="Center" />
+                            <Border DockPanel.Dock="Right"
+                                    Background="{DynamicResource ValueChipBackground}"
+                                    CornerRadius="{DynamicResource ButtonCornerRadius}"
+                                    Padding="10,4">
+                                <TextBlock Text="未配置" FontSize="{DynamicResource FontSizeSmall}"
+                                           FontStyle="Italic"
+                                           Foreground="{DynamicResource DisabledText}" />
+                            </Border>
+                        </DockPanel>
+                    </Border>
+                </StackPanel>
+            </Border>
+
+            <!-- 自动更新检查 -->
+            <Border Background="{DynamicResource CardBackground}"
+                    CornerRadius="{DynamicResource RadiusSm}"
+                    Padding="20,14"
+                    Margin="0,0,0,4">
+                <DockPanel>
+                    <StackPanel DockPanel.Dock="Left" Spacing="{DynamicResource SpacingXs}"
+                                VerticalAlignment="Center">
+                        <TextBlock Text="自动更新检查" FontSize="{DynamicResource FontSizeSubtitle}"
+                                   FontWeight="Medium" />
+                        <TextBlock Text="每隔 7 天检查一次新版本"
+                                   FontSize="{DynamicResource FontSizeCaption}"
+                                   Foreground="{DynamicResource SecondaryText}" />
+                    </StackPanel>
+                    <ToggleSwitch DockPanel.Dock="Right" VerticalAlignment="Center"
+                                  IsChecked="False" />
+                </DockPanel>
+            </Border>
+
+            <!-- 数据管理 -->
+            <Border Background="{DynamicResource CardBackground}"
+                    CornerRadius="{DynamicResource RadiusSm}"
+                    Padding="20,14"
+                    Margin="0,0,0,4">
+                <StackPanel Spacing="{DynamicResource SpacingMd}">
+                    <TextBlock Text="数据管理" FontSize="{DynamicResource FontSizeSubtitle}"
+                               FontWeight="Medium" />
+                    <TextBlock Text="导出或重置应用数据" FontSize="{DynamicResource FontSizeCaption}"
+                               Foreground="{DynamicResource SecondaryText}" />
+
+                    <StackPanel Orientation="Horizontal" Spacing="{DynamicResource SpacingSm}"
+                                Margin="0,4,0,0">
+                        <Border Background="{DynamicResource ValueChipBackground}"
+                                CornerRadius="{DynamicResource RadiusXs}"
+                                Padding="14,6"
+                                VerticalAlignment="Center" Cursor="Hand">
+                            <TextBlock Text="打开数据目录" FontSize="{DynamicResource FontSizeCaption}"
+                                       Foreground="{DynamicResource SecondaryText}" />
+                        </Border>
+                        <Border Background="{DynamicResource ValueChipBackground}"
+                                CornerRadius="{DynamicResource RadiusXs}"
+                                Padding="14,6"
+                                VerticalAlignment="Center" Cursor="Hand">
+                            <TextBlock Text="重置所有设置" FontSize="{DynamicResource FontSizeCaption}"
+                                       Foreground="{DynamicResource AccentRed}" />
+                        </Border>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+
+        </StackPanel>
+    </ScrollViewer>
+</UserControl>
