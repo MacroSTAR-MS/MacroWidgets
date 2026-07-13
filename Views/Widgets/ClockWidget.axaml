@@ -1,0 +1,75 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="using:MacWidget.ViewModels.Widgets"
+             x:Class="MacWidget.Views.Widgets.ClockWidget"
+             x:DataType="vm:ClockViewModel">
+
+    <Border Background="{DynamicResource WidgetBackground}"
+            CornerRadius="{DynamicResource WidgetCornerRadius}"
+            Padding="20"
+            ClipToBounds="True">
+
+        <Grid RowDefinitions="Auto,Auto">
+
+            <!-- Row 1: Clock Display (HH : mm : ss) -->
+            <StackPanel Grid.Row="0"
+                        Orientation="Horizontal"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center">
+
+                <TextBlock Text="{Binding Hours}"
+                           FontFamily="Consolas, Courier New, monospace"
+                           FontSize="{DynamicResource FontSizeDisplay}"
+                           FontWeight="Bold"
+                           Foreground="White" />
+
+                <TextBlock Text=":"
+                           FontFamily="Consolas, Courier New, monospace"
+                           FontSize="{DynamicResource FontSizeDisplay}"
+                           FontWeight="Bold"
+                           Foreground="White"
+                           Margin="8,0" />
+
+                <TextBlock Text="{Binding Minutes}"
+                           FontFamily="Consolas, Courier New, monospace"
+                           FontSize="{DynamicResource FontSizeDisplay}"
+                           FontWeight="Bold"
+                           Foreground="White" />
+
+                <TextBlock Text=":"
+                           FontFamily="Consolas, Courier New, monospace"
+                           FontSize="{DynamicResource FontSizeDisplay}"
+                           FontWeight="Bold"
+                           Foreground="White"
+                           Margin="8,0" />
+
+                <TextBlock Text="{Binding Seconds}"
+                           FontFamily="Consolas, Courier New, monospace"
+                           FontSize="{DynamicResource FontSizeDisplay}"
+                           FontWeight="Bold"
+                           Foreground="White" />
+
+            </StackPanel>
+
+            <!-- Row 2: Date Display -->
+            <StackPanel Grid.Row="1"
+                        HorizontalAlignment="Center"
+                        Margin="0,8,0,0">
+
+                <TextBlock Text="{Binding DateString}"
+                           FontSize="{DynamicResource FontSizeBody}"
+                           Foreground="{DynamicResource PrimaryText}"
+                           HorizontalAlignment="Center"
+                           Margin="0,0,0,2" />
+
+                <TextBlock Text="{Binding LunarDateString}"
+                           FontSize="{DynamicResource FontSizeCaption}"
+                           Foreground="{DynamicResource SecondaryText}"
+                           HorizontalAlignment="Center" />
+
+            </StackPanel>
+
+        </Grid>
+
+    </Border>
+</UserControl>

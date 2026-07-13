@@ -1,0 +1,95 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="using:MacWidget.ViewModels.Widgets"
+             x:Class="MacWidget.Views.Widgets.CalendarWidget"
+             x:DataType="vm:CalendarViewModel">
+
+    <Border Background="{DynamicResource WidgetBackground}"
+            CornerRadius="{DynamicResource WidgetCornerRadius}"
+            Padding="16"
+            ClipToBounds="true">
+
+        <StackPanel Spacing="8">
+
+            <!-- Header: Month + Year -->
+            <StackPanel Spacing="2" HorizontalAlignment="Center">
+                <TextBlock Text="{Binding MonthName}"
+                           FontSize="14"
+                           FontWeight="SemiBold"
+                           Foreground="{DynamicResource PrimaryText}"
+                           HorizontalAlignment="Center" />
+                <TextBlock Text="{Binding CurrentYear}"
+                           FontSize="12"
+                           Foreground="{DynamicResource SecondaryText}"
+                           HorizontalAlignment="Center" />
+            </StackPanel>
+
+            <!-- Day-of-week header row -->
+            <UniformGrid Columns="7">
+                <TextBlock Text="一" FontSize="11" Foreground="{DynamicResource TertiaryText}"
+                           HorizontalAlignment="Center" VerticalAlignment="Center" />
+                <TextBlock Text="二" FontSize="11" Foreground="{DynamicResource TertiaryText}"
+                           HorizontalAlignment="Center" VerticalAlignment="Center" />
+                <TextBlock Text="三" FontSize="11" Foreground="{DynamicResource TertiaryText}"
+                           HorizontalAlignment="Center" VerticalAlignment="Center" />
+                <TextBlock Text="四" FontSize="11" Foreground="{DynamicResource TertiaryText}"
+                           HorizontalAlignment="Center" VerticalAlignment="Center" />
+                <TextBlock Text="五" FontSize="11" Foreground="{DynamicResource TertiaryText}"
+                           HorizontalAlignment="Center" VerticalAlignment="Center" />
+                <TextBlock Text="六" FontSize="11" Foreground="{DynamicResource TertiaryText}"
+                           HorizontalAlignment="Center" VerticalAlignment="Center" />
+                <TextBlock Text="日" FontSize="11" Foreground="{DynamicResource TertiaryText}"
+                           HorizontalAlignment="Center" VerticalAlignment="Center" />
+            </UniformGrid>
+
+            <!-- Calendar grid: 7 columns x 6 rows -->
+            <ItemsControl ItemsSource="{Binding Days}">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <UniformGrid Columns="7" />
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Grid HorizontalAlignment="Center" VerticalAlignment="Center"
+                              Width="24" Height="24">
+
+                            <!-- Today highlight circle (visible only when IsToday) -->
+                            <Border CornerRadius="12"
+                                    Background="{DynamicResource AccentBlue}"
+                                    IsVisible="{Binding IsToday}" />
+
+                            <!-- Day number -->
+                            <TextBlock Text="{Binding Day}"
+                                       FontSize="12"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center" />
+                        </Grid>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+
+        </StackPanel>
+
+    </Border>
+
+    <UserControl.Styles>
+        <Style Selector="ItemsControl Grid:not(.today-cell) TextBlock">
+            <Setter Property="Foreground" Value="{DynamicResource PrimaryText}" />
+        </Style>
+
+        <Style Selector="ItemsControl Grid.today-cell TextBlock">
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="FontWeight" Value="SemiBold" />
+        </Style>
+
+        <Style Selector="ItemsControl Grid.dim-cell">
+            <Setter Property="Opacity" Value="0.3" />
+        </Style>
+
+        <Style Selector="ItemsControl Grid.dim-cell TextBlock">
+            <Setter Property="Foreground" Value="{DynamicResource TertiaryText}" />
+        </Style>
+    </UserControl.Styles>
+</UserControl>

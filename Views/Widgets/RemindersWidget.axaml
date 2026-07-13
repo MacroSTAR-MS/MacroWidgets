@@ -1,0 +1,100 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="using:MacWidget.ViewModels.Widgets"
+             xmlns:models="using:MacWidget.Models"
+             x:Class="MacWidget.Views.Widgets.RemindersWidget"
+             x:DataType="vm:RemindersViewModel">
+
+    <Border Background="{DynamicResource WidgetBackground}"
+            CornerRadius="{DynamicResource WidgetCornerRadius}"
+            Padding="16"
+            ClipToBounds="true">
+
+        <StackPanel Spacing="0">
+
+            <!-- Header -->
+            <DockPanel Margin="0,0,0,8">
+                <TextBlock Text="{Binding HeaderText}"
+                           FontSize="14"
+                           FontWeight="SemiBold"
+                           Foreground="{DynamicResource PrimaryText}"
+                           DockPanel.Dock="Left"
+                           VerticalAlignment="Center" />
+
+                <TextBlock Text="{Binding PendingCount}"
+                           FontSize="12"
+                           Foreground="{DynamicResource SecondaryText}"
+                           DockPanel.Dock="Right"
+                           HorizontalAlignment="Right"
+                           VerticalAlignment="Center" />
+            </DockPanel>
+
+            <!-- Separator -->
+            <Border Height="1"
+                    Background="{DynamicResource WidgetBorder}"
+                    Margin="0,0,0,8" />
+
+            <!-- Add new item -->
+            <DockPanel Margin="0,0,0,8">
+                <Button DockPanel.Dock="Right"
+                        Command="{Binding AddItemCommand}"
+                        Content="+"
+                        Width="28" Height="28"
+                        FontSize="14" FontWeight="Bold"
+                        CornerRadius="{DynamicResource ButtonCornerRadius}"
+                        Background="{DynamicResource AccentBlue}"
+                        Foreground="White"
+                        Padding="0" />
+                <TextBox Text="{Binding NewItemText}"
+                         FontSize="12"
+                         CornerRadius="{DynamicResource ButtonCornerRadius}"
+                         Padding="8,6" />
+            </DockPanel>
+
+            <!-- Reminder items -->
+            <ItemsControl ItemsSource="{Binding Items}">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate x:DataType="models:ReminderItem">
+                        <DockPanel Margin="0,0,0,4">
+                            <!-- Toggle button -->
+                            <Button DockPanel.Dock="Left"
+                                    Command="{Binding $parent[ItemsControl].((vm:RemindersViewModel)DataContext).ToggleCompleteCommand}"
+                                    CommandParameter="{Binding}"
+                                    Width="18" Height="18"
+                                    CornerRadius="6"
+                                    Padding="0"
+                                    Margin="0,0,10,0">
+                                <Button.Styles>
+                                    <Style Selector="Button:checked /template/ ContentPresenter#PART_ContentPresenter">
+                                        <Setter Property="Background" Value="{DynamicResource AccentBlue}" />
+                                    </Style>
+                                </Button.Styles>
+                            </Button>
+
+                            <!-- Delete button -->
+                            <Button DockPanel.Dock="Right"
+                                    Command="{Binding $parent[ItemsControl].((vm:RemindersViewModel)DataContext).RemoveItemCommand}"
+                                    CommandParameter="{Binding}"
+                                    Content="x"
+                                    FontSize="11"
+                                    Width="18" Height="18"
+                                    CornerRadius="9"
+                                    Background="Transparent"
+                                    Foreground="{DynamicResource TertiaryText}"
+                                    Padding="0" Opacity="0.5" />
+
+                            <!-- Title -->
+                            <TextBlock Text="{Binding Title}"
+                                       FontSize="12"
+                                       VerticalAlignment="Center"
+                                       Foreground="{DynamicResource PrimaryText}"
+                                       TextTrimming="CharacterEllipsis" />
+                        </DockPanel>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+
+        </StackPanel>
+
+    </Border>
+</UserControl>

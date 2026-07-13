@@ -1,0 +1,82 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="using:MacWidget.ViewModels.Widgets"
+             x:Class="MacWidget.Views.Widgets.WeatherWidget"
+             x:DataType="vm:WeatherViewModel">
+
+  <Border Background="{DynamicResource WidgetBackground}"
+          CornerRadius="{DynamicResource WidgetCornerRadius}"
+          Padding="16"
+          ClipToBounds="True">
+    <DockPanel>
+      <!-- Top section: city, temperature, condition, icon, high/low -->
+      <Border DockPanel.Dock="Top">
+        <Grid ColumnDefinitions="*,Auto">
+          <!-- Left column -->
+          <StackPanel Grid.Column="0" VerticalAlignment="Center">
+            <TextBlock Text="{Binding WeatherInfo.City}"
+                       FontSize="{DynamicResource FontSizeCaption}"
+                       Foreground="{DynamicResource SecondaryText}"
+                       Margin="0,0,0,4" />
+            <TextBlock Text="{Binding WeatherInfo.CurrentTemp}"
+                       FontSize="56"
+                       FontWeight="Bold"
+                       Foreground="White" />
+            <TextBlock Text="{Binding WeatherInfo.Condition}"
+                       FontSize="{DynamicResource FontSizeBody}"
+                       Foreground="{DynamicResource PrimaryText}"
+                       Margin="0,4,0,0" />
+          </StackPanel>
+
+          <!-- Right column -->
+          <StackPanel Grid.Column="1" VerticalAlignment="Top">
+            <TextBlock Text="{Binding WeatherInfo.ConditionIcon}"
+                       FontSize="40"
+                       HorizontalAlignment="Right"
+                       VerticalAlignment="Top"
+                       Margin="0,0,0,20" />
+            <TextBlock FontSize="{DynamicResource FontSizeCaption}"
+                       Foreground="{DynamicResource SecondaryText}"
+                       HorizontalAlignment="Right">
+              <TextBlock.Text>
+                <MultiBinding StringFormat="H:{0}°  L:{1}°">
+                  <Binding Path="WeatherInfo.HighTemp" />
+                  <Binding Path="WeatherInfo.LowTemp" />
+                </MultiBinding>
+              </TextBlock.Text>
+            </TextBlock>
+          </StackPanel>
+        </Grid>
+      </Border>
+
+      <!-- Bottom section: hourly forecast strip -->
+      <ItemsControl ItemsSource="{Binding WeatherInfo.HourlyForecast}"
+                    VerticalAlignment="Bottom">
+        <ItemsControl.ItemsPanel>
+          <ItemsPanelTemplate>
+            <StackPanel Orientation="Horizontal" Spacing="16" />
+          </ItemsPanelTemplate>
+        </ItemsControl.ItemsPanel>
+        <ItemsControl.ItemTemplate>
+          <DataTemplate>
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+              <TextBlock Text="{Binding Time}"
+                         FontSize="11"
+                         Foreground="{DynamicResource SecondaryText}"
+                         HorizontalAlignment="Center" />
+              <TextBlock Text="{Binding Icon}"
+                         FontSize="20"
+                         Margin="4,2"
+                         HorizontalAlignment="Center" />
+              <TextBlock Text="{Binding Temperature}"
+                         FontSize="13"
+                         FontWeight="Medium"
+                         Foreground="{DynamicResource PrimaryText}"
+                         HorizontalAlignment="Center" />
+            </StackPanel>
+          </DataTemplate>
+        </ItemsControl.ItemTemplate>
+      </ItemsControl>
+    </DockPanel>
+  </Border>
+</UserControl>

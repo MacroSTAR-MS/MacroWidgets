@@ -1,0 +1,179 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="MacWidget.Views.Settings.SettingsWindow"
+        Title="MacWidget 设置"
+        Width="500" Height="560"
+        SystemDecorations="Full"
+        CanResize="false"
+        WindowStartupLocation="CenterScreen"
+        ExtendClientAreaToDecorationsHint="True"
+        ExtendClientAreaChromeHints="PreferSystemChrome">
+
+    <Window.Styles>
+        <!-- 标题栏区域样式 -->
+        <Style Selector="Border.titlebar">
+            <Setter Property="Height" Value="32" />
+        </Style>
+    </Window.Styles>
+
+    <Panel>
+        <!-- 窗口内容主体 -->
+        <Border Padding="0" Margin="0">
+            <ScrollViewer VerticalScrollBarVisibility="Auto">
+                <StackPanel Margin="36,48,36,24" Spacing="6">
+
+                    <!-- 页面标题 -->
+                    <TextBlock Text="设置"
+                               FontSize="24" FontWeight="Bold"
+                               Foreground="{DynamicResource SystemAccentColor}"
+                               Margin="0,0,0,4" />
+
+                    <TextBlock Text="管理 MacWidget 桌面小组件的偏好设置"
+                               FontSize="12"
+                               Foreground="Gray"
+                               Margin="0,0,0,20" />
+
+                    <!-- ====== 通用 ====== -->
+                    <TextBlock Text="通用" FontSize="13" FontWeight="SemiBold"
+                               Foreground="{DynamicResource SystemAccentColor}"
+                               Margin="0,8,0,8" />
+
+                    <!-- 天气城市 -->
+                    <Border Background="#0A000000" CornerRadius="8" Padding="16,12"
+                            Margin="0,0,0,4">
+                        <DockPanel>
+                            <StackPanel DockPanel.Dock="Left" Spacing="2">
+                                <TextBlock Text="天气城市" FontSize="13"
+                                           Foreground="{DynamicResource ThemeForegroundBrush}" />
+                                <TextBlock Text="设置天气小组件显示的城市" FontSize="11"
+                                           Foreground="Gray" />
+                            </StackPanel>
+                            <Border DockPanel.Dock="Right" Background="#08000000"
+                                    CornerRadius="6" Padding="12,4"
+                                    VerticalAlignment="Center">
+                                <TextBlock Text="广州" FontSize="12"
+                                           Foreground="Gray" />
+                            </Border>
+                        </DockPanel>
+                    </Border>
+
+                    <!-- 开机自启 -->
+                    <Border Background="#0A000000" CornerRadius="8" Padding="16,12"
+                            Margin="0,0,0,4">
+                        <DockPanel>
+                            <StackPanel DockPanel.Dock="Left" Spacing="2">
+                                <TextBlock Text="开机自启" FontSize="13"
+                                           Foreground="{DynamicResource ThemeForegroundBrush}" />
+                                <TextBlock Text="Windows 启动时自动运行" FontSize="11"
+                                           Foreground="Gray" />
+                            </StackPanel>
+                            <ToggleSwitch DockPanel.Dock="Right"
+                                          VerticalAlignment="Center" IsChecked="False" />
+                        </DockPanel>
+                    </Border>
+
+                    <!-- ====== 外观 ====== -->
+                    <TextBlock Text="外观" FontSize="13" FontWeight="SemiBold"
+                               Foreground="{DynamicResource SystemAccentColor}"
+                               Margin="0,16,0,8" />
+
+                    <!-- 主题 -->
+                    <Border Background="#0A000000" CornerRadius="8" Padding="16,12"
+                            Margin="0,0,0,4">
+                        <DockPanel>
+                            <StackPanel DockPanel.Dock="Left" Spacing="2">
+                                <TextBlock Text="主题" FontSize="13"
+                                           Foreground="{DynamicResource ThemeForegroundBrush}" />
+                                <TextBlock Text="选择应用外观" FontSize="11"
+                                           Foreground="Gray" />
+                            </StackPanel>
+                            <Border DockPanel.Dock="Right" Background="#08000000"
+                                    CornerRadius="6" Padding="12,4"
+                                    VerticalAlignment="Center">
+                                <TextBlock Text="深色" FontSize="12" Foreground="Gray" />
+                            </Border>
+                        </DockPanel>
+                    </Border>
+
+                    <!-- 语言 -->
+                    <Border Background="#0A000000" CornerRadius="8" Padding="16,12"
+                            Margin="0,0,0,4">
+                        <DockPanel>
+                            <StackPanel DockPanel.Dock="Left" Spacing="2">
+                                <TextBlock Text="语言" FontSize="13"
+                                           Foreground="{DynamicResource ThemeForegroundBrush}" />
+                                <TextBlock Text="设置界面语言" FontSize="11"
+                                           Foreground="Gray" />
+                            </StackPanel>
+                            <Border DockPanel.Dock="Right" Background="#08000000"
+                                    CornerRadius="6" Padding="12,4"
+                                    VerticalAlignment="Center">
+                                <TextBlock Text="简体中文" FontSize="12" Foreground="Gray" />
+                            </Border>
+                        </DockPanel>
+                    </Border>
+
+                    <!-- ====== 通知 ====== -->
+                    <TextBlock Text="通知" FontSize="13" FontWeight="SemiBold"
+                               Foreground="{DynamicResource SystemAccentColor}"
+                               Margin="0,16,0,8" />
+
+                    <!-- 启用通知 -->
+                    <Border Background="#0A000000" CornerRadius="8" Padding="16,12"
+                            Margin="0,0,0,4">
+                        <DockPanel>
+                            <StackPanel DockPanel.Dock="Left" Spacing="2">
+                                <TextBlock Text="启用通知" FontSize="13"
+                                           Foreground="{DynamicResource ThemeForegroundBrush}" />
+                                <TextBlock Text="提醒事项到期时发送通知" FontSize="11"
+                                           Foreground="Gray" />
+                            </StackPanel>
+                            <ToggleSwitch DockPanel.Dock="Right"
+                                          VerticalAlignment="Center" IsChecked="True" />
+                        </DockPanel>
+                    </Border>
+
+                    <!-- ====== 高级 ====== -->
+                    <TextBlock Text="高级" FontSize="13" FontWeight="SemiBold"
+                               Foreground="{DynamicResource SystemAccentColor}"
+                               Margin="0,16,0,8" />
+
+                    <!-- 天气 API（埋点） -->
+                    <Border Background="#0A000000" CornerRadius="8" Padding="16,12"
+                            Margin="0,0,0,4">
+                        <StackPanel Spacing="2">
+                            <TextBlock Text="天气 API" FontSize="13"
+                                       Foreground="{DynamicResource ThemeForegroundBrush}" />
+                            <TextBlock Text="配置天气数据源（后续对接）" FontSize="11"
+                                       Foreground="Gray" />
+                            <Border Background="#06000000" CornerRadius="6"
+                                    Padding="10,6" Margin="0,6,0,0">
+                                <TextBlock Text="未配置" FontSize="11"
+                                           FontStyle="Italic" Foreground="DarkGray" />
+                            </Border>
+                        </StackPanel>
+                    </Border>
+
+                    <!-- 更新检查 -->
+                    <Border Background="#0A000000" CornerRadius="8" Padding="16,12"
+                            Margin="0,0,0,4">
+                        <DockPanel>
+                            <StackPanel DockPanel.Dock="Left" Spacing="2">
+                                <TextBlock Text="自动更新检查" FontSize="13"
+                                           Foreground="{DynamicResource ThemeForegroundBrush}" />
+                                <TextBlock Text="每隔 7 天检查新版本" FontSize="11"
+                                           Foreground="Gray" />
+                            </StackPanel>
+                            <ToggleSwitch DockPanel.Dock="Right"
+                                          VerticalAlignment="Center" IsChecked="False" />
+                        </DockPanel>
+                    </Border>
+
+                    <!-- 底部留白 -->
+                    <Border Height="16" />
+
+                </StackPanel>
+            </ScrollViewer>
+        </Border>
+    </Panel>
+</Window>

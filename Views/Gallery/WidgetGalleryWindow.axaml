@@ -1,0 +1,110 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="clr-namespace:MacWidget.ViewModels.Widgets"
+        x:Class="MacWidget.Views.Gallery.WidgetGalleryWindow"
+        x:DataType="vm:WidgetGalleryViewModel"
+        Title="小组件画廊"
+        Width="520" Height="400"
+        Background="Transparent"
+        TransparencyLevelHint="AcrylicBlur"
+        ExtendClientAreaToDecorationsHint="true"
+        ExtendClientAreaChromeHints="NoChrome"
+        CanResize="false"
+        WindowStartupLocation="CenterScreen">
+
+    <Border Background="{DynamicResource WidgetBackground}"
+            CornerRadius="{DynamicResource WidgetCornerRadius}"
+            ClipToBounds="true"
+            Margin="10"
+            Padding="24">
+
+        <Panel>
+            <!-- 标题栏拖动区域 -->
+            <Border Height="28" VerticalAlignment="Top"
+                    Background="Transparent" x:Name="TitleBar" />
+
+            <StackPanel Margin="0,28,0,0" Spacing="16">
+                <!-- 标题 -->
+                <TextBlock Text="小组件画廊"
+                           FontSize="20" FontWeight="Bold"
+                           Foreground="{DynamicResource PrimaryText}" />
+
+                <TextBlock Text="点击下方卡片即可在桌面添加小组件"
+                           FontSize="12"
+                           Foreground="{DynamicResource TertiaryText}" />
+
+                <!-- 小组件卡片网格 -->
+                <ItemsControl ItemsSource="{Binding AvailableWidgets}">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel Orientation="Horizontal" />
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Button x:Name="AddButton"
+                                    Command="{Binding $parent[ItemsControl].((vm:WidgetGalleryViewModel)DataContext).AddWidgetCommand}"
+                                    CommandParameter="{Binding Type}"
+                                    Background="#FFFFFF08"
+                                    CornerRadius="{DynamicResource CardCornerRadius}"
+                                    Padding="16"
+                                    Margin="0,0,12,12"
+                                    Width="220"
+                                    HorizontalAlignment="Left">
+                                <Button.Styles>
+                                    <Style Selector="Button:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+                                        <Setter Property="Background" Value="#FFFFFF14" />
+                                    </Style>
+                                </Button.Styles>
+                                <StackPanel Spacing="10">
+                                    <!-- 图标区域 -->
+                                    <Border Background="{DynamicResource AccentBlue}"
+                                            Opacity="0.15"
+                                            CornerRadius="{DynamicResource ButtonCornerRadius}"
+                                            Width="48" Height="48"
+                                            HorizontalAlignment="Center">
+                                        <TextBlock Text="{Binding Type}"
+                                                   FontSize="18"
+                                                   HorizontalAlignment="Center"
+                                                   VerticalAlignment="Center"
+                                                   Foreground="{DynamicResource PrimaryText}" />
+                                    </Border>
+                                    <!-- 名称和描述 -->
+                                    <TextBlock Text="{Binding Name}"
+                                               FontSize="13" FontWeight="SemiBold"
+                                               Foreground="{DynamicResource PrimaryText}"
+                                               HorizontalAlignment="Center" />
+                                    <TextBlock Text="{Binding Description}"
+                                               FontSize="11"
+                                               Foreground="{DynamicResource TertiaryText}"
+                                               HorizontalAlignment="Center"
+                                               TextWrapping="Wrap" />
+                                    <!-- 添加按钮提示 -->
+                                    <Border Background="{DynamicResource AccentBlue}"
+                                            CornerRadius="{DynamicResource PillCornerRadius}"
+                                            Padding="12,4"
+                                            HorizontalAlignment="Center">
+                                        <TextBlock Text="＋ 添加到桌面"
+                                                   FontSize="11" FontWeight="Medium"
+                                                   Foreground="White" />
+                                    </Border>
+                                </StackPanel>
+                            </Button>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+
+                <!-- 底部关闭按钮 -->
+                <Button Content="关闭"
+                        Command="{Binding CloseCommand}"
+                        HorizontalAlignment="Center"
+                        FontSize="13" FontWeight="Medium"
+                        Padding="32,8"
+                        CornerRadius="{DynamicResource PillCornerRadius}"
+                        Background="#FFFFFF12"
+                        Foreground="{DynamicResource SecondaryText}"
+                        Margin="0,4,0,0" />
+            </StackPanel>
+        </Panel>
+    </Border>
+</Window>
